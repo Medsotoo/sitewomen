@@ -1,5 +1,5 @@
 from django.urls import path, re_path, register_converter
-from .views import index, about, show_post, addpage, contact, login
+from .views import index, about, show_post, addpage, contact, login, test
 from . import converters
 
 register_converter(converters.FourDigitConverter, 'year4')
@@ -11,5 +11,6 @@ urlpatterns = [
     path('addpage/',addpage, name='add_page'),
     path('contact/', contact, name='contact'),
     path('iogin/', login, name='login'),
+    path('test/', test, name='my_test'),
     path('post/<int:post_id>/', show_post, name='post'),
 ]

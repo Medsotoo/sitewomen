@@ -10,7 +10,8 @@ from django.template.defaultfilters import slugify, cut
 menu = [{'title':'О сайте', 'url_name':'about'},
     {'title':'Добавить статью', 'url_name':'add_page'},
     {'title':'Обратная связь', 'url_name':'contact'},
-    {'title':'Войти', 'url_name':'login'}]
+    {'title':'Войти', 'url_name':'login'},
+    {'title':'Тестовая кнопка', 'url_name':'my_test'}]
 
 data_db = [
     {"id": 1, "name": "Item 1", "content": "Content for item 1", "is_public": True},
@@ -53,4 +54,7 @@ def contact(request):
 
 def login(request):
     return HttpResponse('Авторизация')
+
+def test(request):
+    return HttpResponse('Тест')
 
