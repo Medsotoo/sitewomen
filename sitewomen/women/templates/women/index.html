@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+</head>
+<body>
+    <ul>
+        <li><a href="{%url 'home'%}"> На главную</a></li>
+        {% for m in menu %}
+        <li class="=last">
+            <a href="{%url m.url_name%}">{{m.title}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <p>{{ posts }}</p>
+    <ul>
+        {% for post in posts%}
+        {% if post.is_public %}
+        <li>
+            <h2> {{post.name}} </h2>
+            <h2> {{post.content}} </h2>
+            <p><a href="{% url 'post' post.id %}">Пост</a></p>
+            {% if not forloop.last %}
+            <hr>
+            {% endif %}
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</body>
+</html>
